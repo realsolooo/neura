@@ -21,22 +21,11 @@ function updateConfigProducts() {
     const optionaliOSPublicKey = queryParams.get('optionaliOSPublicKey');
     const optionalAppName = queryParams.get('optionalAppName');
 
-    if (!optionalAndroidPublicKey && !optionaliOSPublicKey) {
+    if (!optionalAndroidPublicKey  {
         return;
     }
 
     config.products = [];
-
-    if (optionaliOSPublicKey) {
-        const name = `${optionalAppName ?? "Demo App"} (iOS)`;
-        const product = {
-            name: name,
-            publicKey: optionaliOSPublicKey,
-            device: "iphone15pro",
-        };
-        config.products.push(product);
-    }
-
     if (optionalAndroidPublicKey) {
         const name = `${optionalAppName ?? "Demo App"} (Android)`;
         const product = {
